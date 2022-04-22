@@ -1,0 +1,11 @@
+#APRIORI
+install.packages("arules")
+mydata=read.csv("Cosmetics.csv",header="T",colClasses="factor")
+View(mydata)
+library(arules)
+rules=apriori(mydata)
+summary(rules)
+rules=apriori(mydata,parameter=list(minlen=2,maxlen=3,supp=0.7))
+inspect(rules)
+library("arulesViz")
+plot(rules)
